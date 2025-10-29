@@ -20,7 +20,10 @@ Las fuentes de datos provienen de 13 archivos `.csv` con información de cliente
 Este repositorio contiene el código necesario para transformar los datos crudos en un Data Warehouse, exportado como CSV dentro de `warehouse/`, listo para su uso en herramientas BI como **Looker Studio o Power BI**.
 
 ---
+## Diagrama Entidad Relación - OLTP
+<img width="5286" height="4258" alt="DER (2)" src="https://github.com/user-attachments/assets/26f097e7-a66b-414c-9f70-372ca59da4e1" />
 
+---
 ## 🧱 Arquitectura del Proyecto
 ```mkt_tp_final/
 │
@@ -140,3 +143,6 @@ El modelo resultante permite analizar:
 
 Proyecto desarrollado por Paz Sevilla, Licenciatura en Ciencia de Datos – Universidad Austral (2025).
 Los archivos raw provienen del repositorio académico provisto por la cátedra y fueron utilizados únicamente con fines educativos.
+
+
+
