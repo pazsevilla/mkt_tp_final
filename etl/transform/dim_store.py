@@ -1,23 +1,35 @@
-def build_dim_store(df_store, dim_address):
+import pandas as pd
+
+def build_dim_store(df_store, df_address, df_province):
+    # 1) Store sin duplicados
     dim = df_store.drop_duplicates(subset=["store_id"]).copy()
 
-    # store + address (address ya tiene province_name/province_code)
+    # 2) Merge store + address
     dim = dim.merge(
-        dim_address[[
-            "address_id","address_sk",
-            "line1","line2","city",
-            "province_id","province_name","province_code",
-            "postal_code","country_code"
-        ]],
-        on="address_id", how="left", validate="m:1"
+        df_address,
+        on="address_id",
+        how="left",
+        validate="m:1"
     )
 
-    dim["store_sk"] = range(1, len(dim)+1)
+    # 3) Merge con province (address ya tiene province_id)
+    dim = dim.merge(
+        df_province.rename(columns={"name":"province_name","code":"province_code"}),
+        on="province_id",
+        how="left",
+        validate="m:1"
+    )
 
-    # dejamos address_sk como FK directa a la dim_address (igual es star: fact no se cuelga de address)
+    # 4) Crear surrogate key
+    dim["store_sk"] = range(1, len(dim) + 1)
+
+    # 5) Seleccionar columnas finales (desnormalización completa)
     keep = [
         "store_sk","store_id","name",
-        "address_sk","address_id",
-        "line1","line2","city","province_name","province_code","postal_code","country_code"
+        # address
+        "line1","line2","city","postal_code","country_code",
+        # province
+        "province_name","province_code"
     ]
+
     return dim[keep]
