@@ -15,7 +15,7 @@ def build_dim_address(df_address, df_province):
     keep = [
         "address_sk","address_id",
         "line1","line2","city",
-        "province_id","province_name","province_code",
+        "province_name","province_code",
         "postal_code","country_code","created_at"
     ]
     return dim[keep]
