@@ -3,20 +3,35 @@ import pandas as pd
 def build_fact_nps_response(dfs, dim_date, dim_customer, dim_channel):
     nps = dfs["nps_response"].copy()
 
-    # fechas
-    nps["responded_at"] = pd.to_datetime(nps.get("responded_at"), errors="coerce")
-    nps["date_key"] = nps["responded_at"].dt.strftime("%Y%m%d").fillna("0").astype(int)
+    # 1) Convertir responded_at a datetime
+    nps["responded_at"] = pd.to_datetime(nps["responded_at"], errors="coerce")
 
-    # lookups
-    cust_lkp = dict(zip(dim_customer["customer_id"], dim_customer["customer_sk"]))
-    chan_lkp = dict(zip(dim_channel["channel_id"],  dim_channel["channel_sk"]))
-    date_lkp = dict(zip(dim_date["date_key"],      dim_date["date_sk"]))
+    # 2) Surrogate key
+    nps["nps_sk"] = range(1, len(nps) + 1)
 
-    nps["customer_sk"] = nps["customer_id"].map(cust_lkp) if "customer_id" in nps.columns else None
-    nps["channel_sk"]  = nps["channel_id"].map(chan_lkp)  if "channel_id"  in nps.columns else None
-    nps["date_sk"]     = nps["date_key"].map(date_lkp)
+    # 3) Dividir fecha y hora
+    nps["responded_at_date_key"] = nps["responded_at"].dt.strftime("%Y%m%d").astype(int)
+    nps["responded_at_time"] = nps["responded_at"].dt.strftime("%H:%M:%S")
 
-    keep = ["nps_id","customer_sk","channel_sk","date_sk","score","comment"]
-    keep = [c for c in keep if c in nps.columns]  # tolerante
+    # 4) Lookups
+    date_lkp = dim_date.set_index("date_key")["date_sk"].to_dict()
+    cust_lkp = dim_customer.set_index("customer_id")["customer_sk"].to_dict()
+    chan_lkp = dim_channel.set_index("channel_id")["channel_sk"].to_dict()
+
+    # 5) Map natural keys → surrogate keys
+    nps["responded_at_date_id"] = nps["responded_at_date_key"].map(date_lkp).astype("Int64")
+    nps["customer_sk"] = nps["customer_id"].map(cust_lkp).astype("Int64")
+    nps["channel_sk"] = nps["channel_id"].map(chan_lkp).astype("Int64")
+
+    # 6) Columnas finales
+    keep = [
+        "nps_sk",
+        "score",
+        "comment",
+        "responded_at_date_id",
+        "responded_at_time",
+        "customer_sk",
+        "channel_sk"
+    ]
 
     return nps[keep]
