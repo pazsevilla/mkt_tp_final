@@ -122,12 +122,25 @@ Cada archivo CSV generado está listo para ser usado en una herramienta BI.
 
 ## ✅ Ejecución
 
-### 1️⃣ Instalar dependencias
+### 1️⃣ **Clonar el repositorio:**
+  ```bash
+  git clone [https://github.com/
+  cd mkt_tp_final
+  ```
+    
+### 2️⃣ **Crear y activar un entorno virtual**:
+  ```bash
+  # En Windows (cmd)
+  python -m venv .venv
+   .\.venv\Scripts\activate
+  ```
+
+### 3️⃣ **Instalar dependencias:**
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Ejecutar el pipeline completo
+### 4️⃣ **Ejecutar el pipeline completo:**
 ```
 python main.py
 ```
