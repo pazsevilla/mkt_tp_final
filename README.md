@@ -123,8 +123,8 @@ Cada archivo CSV generado está listo para ser usado en una herramienta BI.
 ## ✅ Ejecución
 
 ### 1️⃣ **Clonar el repositorio:**
-  ```bash
-  git clone [https://github.com/
+  ```bash9
+  git clone [https://github.com/pazsevilla/mkt_tp_final.git](https://github.com/Paz-Sevilla/mkt_tp_final.git)
   cd mkt_tp_final
   ```
     
