@@ -49,11 +49,9 @@ def build_fact_sales_order_item(dfs, dim_date, dim_customer, dim_channel,
         "order_item_sk",          # ✅ surrogate key
         "order_date_sk",          # ✅ Int64
         "customer_sk","channel_sk","store_sk",
-        "bill_addr_sk","ship_addr_sk",
+        "bill_addr_sk",
         "product_sk",
-        "quantity","unit_price","discount_amount","line_total",
-        "status","currency_code","subtotal","tax_amount","shipping_fee","total_amount",
-        "is_paid_or_fulfilled"
+        "quantity","unit_price","discount_amount","line_total"
     ]
 
     return fact[keep]
