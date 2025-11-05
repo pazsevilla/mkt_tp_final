@@ -133,9 +133,13 @@ El modelo resultante permite analizar:
 ### ✅ Entregables de este repositorio
 
 ✔ Pipeline ETL completo (extract → transform → load)
+
 ✔ Modelo dimensional según Kimball (STAR SCHEMA)
+
 ✔ Tablas CSV finales listas para BI
+
 ✔ Código modular, limpio y reproducible
+
 ✔ Ejecución desde consola mediante main.py
 
 ### 🧾 Autoría
