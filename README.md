@@ -82,15 +82,14 @@ Cada archivo CSV generado está listo para ser usado en una herramienta BI.
 ---
 
 ### 📌 Tablas de Hechos
-
-| Tabla | Grano | Métricas |
-|-------|-------|----------|
-| `fact_sales_order` | una fila por orden | subtotal, impuestos, total |
-| `fact_sales_order_item` | una fila por producto vendido | cantidad, precio unitario, descuentos, total línea |
-| `fact_payment` | transacciones de pago | monto, método, estado |
-| `fact_shipment` | envíos procesados | carrier, fechas, estado |
-| `fact_web_session` | sesiones web | fuente, dispositivo, duración |
-| `fact_nps_response` | respuestas NPS | puntaje, comentario, canal |
+| Tabla | Grain | Primary Key (Surrogate) | Métricas principales |
+|-------|-------|-------------------------|----------------------|
+| `fact_sales_order` | una fila por orden | `sales_order_sk` | subtotal, impuestos, total, shipping_fee |
+| `fact_sales_order_item` | una fila por producto dentro de una orden | `order_item_sk` | cantidad, precio unitario, descuentos, total línea |
+| `fact_payment` | una fila por transacción | `payment_sk` | monto, método, estado |
+| `fact_shipment` | una fila por envío | `shipment_sk` | estado, carrier, shipping cost, fechas |
+| `fact_web_session` | una fila por sesión | `session_sk` | canal, dispositivo, fechas inicio/fin |
+| `fact_nps_response` | una fila por respuesta NPS | `nps_sk` | score, comentario, canal |
 
 ---
 
@@ -113,7 +112,7 @@ Al finalizar, la consola mostrará:
 
 Las carpetas warehouse/dim/ y warehouse/fact/ contendrán todos los CSV transformados.
 
-### 📊 Dashboard (Looker Studio o Power BI)
+### 📊 Dashboard 
 
 El modelo resultante permite analizar:
 
