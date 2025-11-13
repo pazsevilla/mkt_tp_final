@@ -9,10 +9,8 @@ from etl.transform.dim_product import build_dim_product
 from etl.transform.dim_customer import build_dim_customer
 from etl.transform.dim_date import build_dim_date
 
-# FACT QUE YA TENIA 
+# FACTS
 from etl.transform.fact_sales_order_item import build_fact_sales_order_item
-
-# FACT NUEVOS 
 from etl.transform.fact_sales_order import build_fact_sales_order
 from etl.transform.fact_payment import build_fact_payment
 from etl.transform.fact_shipment import build_fact_shipment
