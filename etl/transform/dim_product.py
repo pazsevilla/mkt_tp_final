@@ -17,7 +17,7 @@ def build_dim_product(df_product, df_category):
 
     keep = [
         "product_sk","product_id","sku","name",
-        "category_id","category_name","category_parent_name",
+        "category_name","category_parent_name",
         "list_price","status","created_at"
     ]
     return dim[keep]
