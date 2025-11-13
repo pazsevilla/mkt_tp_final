@@ -100,7 +100,7 @@ Cada archivo CSV generado está listo para ser usado en una herramienta BI.
 
 ### Fact Sales Order Item
 
-<img width="626" height="758" alt="Captura de pantalla (234)" src="https://github.com/user-attachments/assets/27509f0d-340b-4a04-b4ef-990f3856b7ad" />
+<img width="610" height="740" alt="stars_schema fact_sales_order_item" src="https://github.com/user-attachments/assets/e35fa284-9dd3-4a19-a360-71db714b4bcc" />
 
 ### Fact Web Session
 
@@ -112,7 +112,7 @@ Cada archivo CSV generado está listo para ser usado en una herramienta BI.
 
 ### Fact Shipment
 
-<img width="664" height="623" alt="Captura de pantalla (233)" src="https://github.com/user-attachments/assets/788da867-8265-42d2-91e7-131d766bbc5a" />
+<img width="635" height="628" alt="star_schema fact_shipment" src="https://github.com/user-attachments/assets/5074d106-a23f-4960-a26d-0206a169dcba" />
 
 ### Fact Nps Response 
 
