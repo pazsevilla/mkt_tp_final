@@ -45,7 +45,6 @@ def build_fact_shipment(dfs, dim_date, dim_customer, dim_channel, dim_store, dim
     # ===== Columnas finales =====
     base_keep = [
         "shipment_sk",                 # <- surrogate key
-        "order_id",                    # si querés, luego lo removemos como en payment
         "shipped_date_sk", "delivered_date_sk",
         "customer_sk", "channel_sk", "store_sk", "ship_addr_sk",
     ]
