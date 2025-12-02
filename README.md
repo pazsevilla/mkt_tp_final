@@ -153,7 +153,7 @@ Al finalizar, la consola mostrará:
 Las carpetas warehouse/dim/ y warehouse/fact/ contendrán todos los CSV transformados.
 
 ### 📊 Dashboard 
-**Ver Dashboard Final intercativo (PowerBI):** [Click aqui para ver la Dashboard](https://app.powerbi.com/groups/me/reports/675366ca-9b80-4303-a7cb-570463e94976/592406c330bb7948db19?experience=power-bi)
+**Ver Dashboard Final intercativo (PowerBI):** [Click aqui para ver la Dashboard](https://app.powerbi.com/view?r=eyJrIjoiZDExM2NkM2UtNjEwMi00MTk4LTk5MDQtZDAzMTc1Y2I5MjJhIiwidCI6IjNlMDUxM2Q2LTY4ZmEtNDE2ZS04ZGUxLTZjNWNkYzMxOWZmYSIsImMiOjR9)
 
 El modelo resultante permite analizar:
 
@@ -169,7 +169,7 @@ El modelo resultante permite analizar:
 
 -Distribución y tendencia de NPS
 
--Métricas logísticas (envíos y pagos)
+-Métricas de clientes (activos, recompra, top clientes)
 
 ### ✅ Entregables de este repositorio
 
@@ -182,6 +182,10 @@ El modelo resultante permite analizar:
 ✔ Código modular, limpio y reproducible
 
 ✔ Ejecución desde consola mediante main.py
+
+✔ Dashboard interactivo en Power BI
+
+✔ Documentación del proyecto
 
 ### 🧾 Autoría
 
